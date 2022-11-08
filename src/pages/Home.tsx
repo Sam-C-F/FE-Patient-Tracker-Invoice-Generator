@@ -1,8 +1,10 @@
 import React from "react";
+import Header from "../components/Header";
 
 const Home: React.FunctionComponent = () => {
   return (
     <React.Fragment>
+      <Header />
       <section>
         <p>
           Welcome to my patient tracker and invoice generator. This is
