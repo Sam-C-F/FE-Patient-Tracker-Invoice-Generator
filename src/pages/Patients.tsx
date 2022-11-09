@@ -46,7 +46,7 @@ const Patients: React.FunctionComponent = () => {
   }
 
   return isErr ? (
-    <p>isErr</p>
+    <p>{isErr}</p>
   ) : (
     <section>
       <Header />
