@@ -5,7 +5,7 @@ const Home: React.FunctionComponent = () => {
   return (
     <React.Fragment>
       <Header />
-      <section>
+      <section className="slug">
         <p>
           Welcome to my patient tracker and invoice generator. This is
           specifically designed for medico-legal expert witnesses. It allows new
