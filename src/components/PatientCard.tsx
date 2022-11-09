@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 type Patient = {
   patient_id: number;
   reference: string;
@@ -10,9 +12,11 @@ const PatientCard: React.FunctionComponent<{ patient: Patient }> = ({
 }) => {
   return (
     <li key={patient.patient_id} className="patient-card">
-      <p>{patient.reference}</p>
-      <p>{patient.patient_name}</p>
-      <p>{patient.solicitor}</p>
+      <Link to={`/patients/${patient.patient_id}`}>
+        <p>{patient.reference}</p>
+        <p>{patient.patient_name}</p>
+        <p>{patient.solicitor}</p>
+      </Link>
     </li>
   );
 };

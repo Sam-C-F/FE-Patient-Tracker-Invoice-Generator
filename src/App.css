@@ -21,3 +21,23 @@
   border-radius: 10%;
   margin: 0.5vw;
 }
+
+.single-patient-table {
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  padding-left: 0;
+}
+
+.single-patient-card {
+  list-style: none;
+  display: inline-block;
+  height: auto;
+  text-align: center;
+  border: 0.3vw;
+  border-style: inset;
+  border-radius: 10%;
+  margin: 0.5vw;
+}
