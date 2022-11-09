@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import PatientCard from "../components/PatientCard";
 
@@ -63,6 +64,12 @@ const Patients: React.FunctionComponent = () => {
         <button type="submit">Submit</button>
       </form>
       <ul className="patient-table">
+        <li className="patient-card">
+          <br />
+          <Link to="/patients/add">
+            <strong>Add Patient</strong>
+          </Link>
+        </li>
         {patients.map((patient) => {
           return <PatientCard patient={patient} />;
         })}
