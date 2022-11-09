@@ -1,7 +1,8 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Header from "../components/Header";
+import InvoiceCard from "../components/InvoiceCard";
 
 const SinglePatient: React.FunctionComponent<{}> = () => {
   const [singlePatient, setSinglePatient] = useState({
@@ -10,7 +11,9 @@ const SinglePatient: React.FunctionComponent<{}> = () => {
     dob: "",
     solicitor: "",
     patient_name: "",
+    patient_id: 0,
   });
+  const [invoicesForPatient, setInvoicesForPatient] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isErr, setIsErr] = useState("");
 
@@ -28,6 +31,21 @@ const SinglePatient: React.FunctionComponent<{}> = () => {
       })
       .catch((err) => {
         setIsErr("Something went wrong. Refresh and try again!");
+        setIsLoading(false);
+      });
+  }, [patient_id]);
+
+  useEffect(() => {
+    setIsLoading(true);
+    axios
+      .get(
+        `https://ts-patient-and-invoices.herokuapp.com/api/invoices/patient/${patient_id}`
+      )
+      .then(({ data }) => {
+        setInvoicesForPatient(data.invoices);
+        setIsLoading(false);
+      })
+      .catch((err) => {
         setIsLoading(false);
       });
   }, [patient_id]);
@@ -53,6 +71,16 @@ const SinglePatient: React.FunctionComponent<{}> = () => {
           Solicitor: {singlePatient.solicitor}
         </li>
       </ul>
+      <hr />
+      <br />
+      <Link
+        to={`/invoices/add/${singlePatient.patient_id}/${singlePatient.patient_name}`}
+      >
+        <p>Add New Invoice</p>
+      </Link>
+      <br />
+      <hr />
+      {<InvoiceCard invoices={invoicesForPatient} />}
     </>
   );
 };
