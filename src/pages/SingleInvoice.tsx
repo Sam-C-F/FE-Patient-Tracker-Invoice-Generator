@@ -42,7 +42,7 @@ const SingleInvoice: React.FunctionComponent<{}> = () => {
 
   const pageTitle = `INVOICE ${
     singleInvoice.patient_name
-  } ${singleInvoice.date.replaceAll("-", " ")}`;
+  } ${singleInvoice.date.replaceAll("/", " ")}`;
 
   document.title = pageTitle;
 
