@@ -81,6 +81,7 @@ thead th:nth-child(6) {
 th,
 td {
   padding: 20px;
+  overflow: hidden;
 }
 
 th {
@@ -93,6 +94,7 @@ td {
 
 tbody td {
   text-align: center;
+  overflow: hidden;
 }
 
 tbody tr:nth-child(even) {
